@@ -1,5 +1,5 @@
 all:
-	gcc src/main.c -lncurses
+	gcc src/*.c -lncurses -Iinc
 
 hellosdl:
 	#echo gcc hellosdl.c -L../SDL2-2.0.18/x86_64-w64-mingw32/lib `./../SDL2-2.0.18/x86_64-w64-mingw32/bin/sdl2-config --libs` -I../SDL2-2.0.18/x86_64-w64-mingw32/include/SDL2
