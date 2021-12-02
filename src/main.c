@@ -23,6 +23,7 @@ refresh();
 while(1) { c = getch();
 switch(c) {
 	case 'n':
+		erase(); refresh();
 		game('n');
 		goto menu;
 	case 'q':
