@@ -2,6 +2,6 @@
 # define DRAW_H
 
 void	load_spaceshipmap();
-void	draw_spaceship();
+void	draw_spaceship(WINDOW *spaceship);
 
 #endif

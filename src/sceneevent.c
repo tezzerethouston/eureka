@@ -2,41 +2,37 @@
 #include <time.h>
 #include "sceneevent.h"
 #include "game.h"
-#include "draw.h"
+#include "display.h"
 
 void	sceneevent(int scene, int I) {
 clock_t	tstart;
-int	i, j;
-FILE	*f;
-char	spaceshipmap[8][28];
+WINDOW	*overlay;
+overlay = newwin(10, 30, 10, 1);
 
 switch(scene) {
 case 1:
 	switch(I) {
 	case 2:	//lights flicker
-		wattron(spaceship, A_REVERSE);
-		box(spaceship, 0, 0);
-		for (i=1; i<9; i++)
-			mvwprintw(spaceship, i, 1, "                            ");
-		wrefresh(spaceship);
+		wattron(overlay, A_REVERSE);
+		box(overlay, 0, 0);
+		for (int i=1; i<9; i++)
+			mvwprintw(overlay, i, 1, "                            ");
+		redrawwin(overlay);
+		wrefresh(overlay);
 		tstart=clock();
 		while((double)(clock()-tstart)/CLOCKS_PER_SEC<0.1);
-		wattroff(spaceship, A_REVERSE);
-		box(spaceship, 0, 0);
-		for (i=1; i<9; i++)
-			mvwprintw(spaceship, i, 1, "                            ");
-		wrefresh(spaceship);
+		wattroff(overlay, A_REVERSE);
+		box(overlay, 0, 0);
+		for (int i=1; i<9; i++)
+			mvwprintw(overlay, i, 1, "                            ");
+		redrawwin(overlay);
+		wrefresh(overlay);
 		tstart=clock();
 		while((double)(clock()-tstart)/CLOCKS_PER_SEC<0.06);
-		wattron(spaceship, A_REVERSE);
-		box(spaceship, 0, 0);
-		draw_spaceship();
-		wrefresh(spaceship);
+		delwin(overlay);
+		refresh_spaceship_reverse();
 		tstart=clock();
 		while((double)(clock()-tstart)/CLOCKS_PER_SEC<0.18);
-		wattroff(spaceship, A_REVERSE);
-		box(spaceship, 0, 0);
-		draw_spaceship();
-		wrefresh(spaceship);
+		refresh_spaceship();
 		break;
 }} return; }

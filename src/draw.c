@@ -15,7 +15,7 @@ for (int i=0; i<8; i++) {
 fclose(f);
 return ; }
 
-void	draw_spaceship() {
+void	draw_spaceship(WINDOW *spaceship) {
 for (int i=0; i<8; i++) {
 	wmove(spaceship, i+1, 1);
 	for (int j=0; j<28; j++)
