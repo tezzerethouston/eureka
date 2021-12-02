@@ -1,19 +1,25 @@
 #include <ncurses.h>
 #include "game.h"
+#include "dialog.h"
 
 int	game (char a) {
 char	c;
 WINDOW	*spaceship, *dialog;
+int	scene, I;
 
-spaceship = newwin(10, 30, 10, 1);
-dialog = newwin(6, 70, 20, 1);
+spaceship = newwin(10, 30, 10, 1); box(spaceship, 0, 0);
+dialog = newwin(6, 70, 20, 1); box(dialog, 0, 0);
+if (a=='n') { scene=1; I=0; }
+else { scene=0; };
+
+if (scene) {
+	printdialog(dialog, scene, I);
+}
 
 // === DISPLAY ===
 erase();
 refresh();
-box(spaceship, 0, 0);
 wrefresh(spaceship);
-box(dialog, 0, 0);
 wrefresh(dialog);
 // ===============
 
