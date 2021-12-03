@@ -3,6 +3,7 @@
 #include "sceneevent.h"
 #include "game.h"
 #include "display.h"
+#include "game2.h"
 
 void	sceneevent(int scene, int I) {
 clock_t	tstart;
@@ -19,9 +20,9 @@ case 1:
 		break;
 
 	case 5: //walking to the flight console
-		refresh_spaceship(3, 14); refresh_portrait();
+		refresh_spaceship2(3, 14); refresh_portrait2();
 		tstart=clock(); while((double)(clock()-tstart)/CLOCKS_PER_SEC<0.5);
-		refresh_spaceship(2, 14); refresh_portrait();
+		refresh_spaceship2(2, 14); refresh_portrait2();
 		break;
 
 	case 2:	//lights flicker
@@ -35,11 +36,11 @@ case 1:
 		box(overlay, 0, 0);
 		for (int i=1; i<9; i++)
 			mvwprintw(overlay, i, 1, "                            ");
-		redrawwin(overlay); wrefresh(overlay); refresh_portrait();
+		redrawwin(overlay); wrefresh(overlay); refresh_portrait2();
 		tstart=clock(); while((double)(clock()-tstart)/CLOCKS_PER_SEC<0.06);
 		delwin(overlay);
-		refresh_spaceship_reverse(); refresh_portrait();
+		refresh_spaceship_reverse2(); refresh_portrait2();
 		tstart=clock(); while((double)(clock()-tstart)/CLOCKS_PER_SEC<0.18);
-		refresh_spaceship(4, 14); refresh_portrait();
+		refresh_spaceship2(4, 14); refresh_portrait2();
 		break;
 }} return; }

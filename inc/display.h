@@ -5,11 +5,11 @@ void	display_init();
 void	display_end();
 
 void	box_spaceship();
-void	refresh_spaceship(int ply, int plx);
-void	refresh_spaceship_reverse();
+void	refresh_spaceship(int ply, int plx, char (*spaceshipmap)[8][28]);
+void	refresh_spaceship_reverse(char (*spaceshipmap)[8][28]);
 int	refresh_dialog(int scene, int I);
 void	erase_dialog();
-void	refresh_portrait();
+void	refresh_portrait(char (*portrait_sabrina)[3][9]);
 void	erase_portrait();
 void	refresh_hswarning();
 void	erase_hswarning();

@@ -10,8 +10,6 @@ spaceship = newwin(10, 30, 11, 5);
 dialog = newwin(6, 70, 20, 1);
 portrait = newwin(5, 11, 16, 1);
 hswarning = newwin(3, 25, 11, 45);
-load_spaceshipmap();
-load_portrait();
 return ; }
 
 void	display_end() {
@@ -27,18 +25,18 @@ for (int i=1; i<9; i++)
 wrefresh(spaceship);
 return ; }
 
-void	refresh_spaceship(int ply, int plx) {
+void	refresh_spaceship(int ply, int plx, char (*spaceshipmap)[][28]) {
 wattroff(spaceship, A_REVERSE);
 box(spaceship, 0, 0);
-draw_spaceship(spaceship);
+draw_spaceship(spaceship, spaceshipmap);
 draw_character(spaceship, ply, plx);
 wrefresh(spaceship);
 return ; }
 
-void	refresh_spaceship_reverse() {
+void	refresh_spaceship_reverse(char (*spaceshipmap)[][28]) {
 wattron(spaceship, A_REVERSE);
 box(spaceship, 0, 0);
-draw_spaceship(spaceship);
+draw_spaceship(spaceship, spaceshipmap);
 wrefresh(spaceship);
 return ; }
 
@@ -54,9 +52,9 @@ werase(dialog);
 wrefresh(dialog);
 return ; }
 
-void	refresh_portrait() {
+void	refresh_portrait(char (*portrait_sabrina)[][9]) {
 box(portrait, 0, 0);
-draw_portrait(portrait);
+draw_portrait(portrait, portrait_sabrina);
 wrefresh(portrait);
 return ; }
 

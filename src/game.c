@@ -1,6 +1,7 @@
 #include <ncurses.h>
 #include "game.h"
 #include "display.h"
+#include "game2.h"
 
 int	game (char a) {
 char	c;
@@ -12,6 +13,7 @@ ply = 4; plx = 14;
 if (a=='n') { scene=1; I=0; }
 else { scene=0; };
 display_init();
+load_ressources();
 
 while(1) {
 switch(c) {
@@ -40,15 +42,15 @@ if (scene==1 && I==5)
 if (scene==1 && I<=1)
 	box_spaceship();
 else if (scene==1 && I==2)
-	refresh_spaceship(ply, plx);
+	refresh_spaceship2(ply, plx);
 else if (scene) {
-	refresh_spaceship(ply, plx);
-	refresh_portrait(); }
-else refresh_spaceship(ply, plx);
+	refresh_spaceship2(ply, plx);
+	refresh_portrait2(); }
+else refresh_spaceship2(ply, plx);
 if (scene) if (!refresh_dialog(scene, I)) {
 	scene = 0; I = 0;
 	erase_dialog(); erase_portrait();
-	refresh_spaceship(ply, plx); }
+	refresh_spaceship2(ply, plx); }
 // ===============
 c=getch(); }
 
