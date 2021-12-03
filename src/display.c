@@ -4,7 +4,7 @@
 #include "dialog.h"
 
 WINDOW	*spaceship, *dialog, *portrait;
-WINDOW	*hswarning, *actions;
+WINDOW	*hswarning, *actions, *planet;
 
 void	display_init() {
 spaceship = newwin(10, 30, 11, 5);
@@ -12,6 +12,7 @@ dialog = newwin(6, 70, 20, 1);
 portrait = newwin(5, 11, 16, 1);
 hswarning = newwin(3, 25, 11, 46);
 actions = newwin(3, 25, 14, 46);
+planet = newwin(20, 70, 1, 1);
 return ; }
 
 void	display_end() {
@@ -20,6 +21,14 @@ delwin(dialog);
 delwin(portrait);
 delwin(hswarning);
 delwin(actions);
+delwin(planet);
+return ; }
+
+void	refresh_planet(int ply, int plx, char **planetmap) {
+draw_planet(planet, planetmap);
+box(planet, 0, 0);
+draw_character(planet, ply, plx);
+wrefresh(planet);
 return ; }
 
 int	refresh_actions(char c) {
@@ -63,6 +72,11 @@ void	refresh_spaceship_reverse(char (*spaceshipmap)[][28]) {
 wattron(spaceship, A_REVERSE);
 box(spaceship, 0, 0);
 draw_spaceship(spaceship, spaceshipmap);
+wrefresh(spaceship);
+return ; }
+
+void	erase_spaceship() {
+werase(spaceship);
 wrefresh(spaceship);
 return ; }
 

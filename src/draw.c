@@ -20,3 +20,9 @@ for (int i=0; i<3; i++) {
 	for (int j=0; j<9; j++)
 		waddch(portrait, (*portrait_sabrina)[i][j]); }
 return ; }
+
+void	draw_planet(WINDOW *planet, char **planetmap) {
+for (int i=0; i<20; i++)
+	for (int j=0; j<70; j++)
+		waddch(planet, planetmap[i][j]);
+return ; }
