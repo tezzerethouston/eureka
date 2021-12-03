@@ -26,11 +26,11 @@ for (int i=1; i<9; i++)
 wrefresh(spaceship);
 return ; }
 
-void	refresh_spaceship() {
+void	refresh_spaceship(int ply, int plx) {
 wattroff(spaceship, A_REVERSE);
 box(spaceship, 0, 0);
 draw_spaceship(spaceship);
-draw_character(spaceship, 4, 14);
+draw_character(spaceship, ply, plx);
 wrefresh(spaceship);
 return ; }
 
