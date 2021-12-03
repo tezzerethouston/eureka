@@ -109,6 +109,14 @@ mvwprintw(hswarning, 1, 1, " HYPERSPACE WARNING!!! ");
 wrefresh(hswarning);
 return ; }
 
+void	blink_hswarning() {
+wattron(hswarning, A_REVERSE);
+box(hswarning, 0, 0);
+wattroff(hswarning, A_REVERSE);
+mvwprintw(hswarning, 1, 1, " HYPERSPACE WARNING!!! ");
+wrefresh(hswarning);
+return ; }
+
 void	erase_hswarning() {
 werase(hswarning);
 wrefresh(hswarning);

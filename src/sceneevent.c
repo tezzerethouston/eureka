@@ -14,8 +14,16 @@ switch(scene) {
 case 1:
 	switch(I) {
 	case 8: //hyperspace
+		blink_hswarning();
+		tstart=clock(); while((double)(clock()-tstart)/CLOCKS_PER_SEC<0.5);
 		refresh_hswarning();
-		tstart=clock(); while((double)(clock()-tstart)/CLOCKS_PER_SEC<2);
+		tstart=clock(); while((double)(clock()-tstart)/CLOCKS_PER_SEC<0.5);
+		blink_hswarning();
+		tstart=clock(); while((double)(clock()-tstart)/CLOCKS_PER_SEC<0.5);
+		refresh_hswarning();
+		tstart=clock(); while((double)(clock()-tstart)/CLOCKS_PER_SEC<0.5);
+		blink_hswarning();
+		tstart=clock(); while((double)(clock()-tstart)/CLOCKS_PER_SEC<0.5);
 		erase_hswarning();
 		break;
 

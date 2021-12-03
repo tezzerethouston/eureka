@@ -16,6 +16,7 @@ void	erase_dialog();
 void	refresh_portrait(char (*portrait_sabrina)[3][9]);
 void	erase_portrait();
 void	refresh_hswarning();
+void	blink_hswarning();
 void	erase_hswarning();
 
 #endif
