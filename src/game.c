@@ -2,6 +2,8 @@
 #include "game.h"
 #include "display.h"
 #include "game2.h"
+#include "screen.h"
+#include "planetmap.h"
 
 void	teleport();
 void	teleport() { return ; }
@@ -12,6 +14,8 @@ int	scene, I;
 int	ply, plx;
 int	actions_open;
 
+screenmap	*planet1;
+
 c = 0;
 ply = 3; plx = 13;
 if (a=='n') { scene=1; I=0; }
@@ -19,6 +23,8 @@ else { scene=0; };
 actions_open = 0;
 display_init();
 load_ressources();
+
+planet1 = new_planet();
 
 while(1) {
 switch(c) {
@@ -76,5 +82,6 @@ else actions_open = 1;
 c=getch(); }
 
 exit:
+free_planet(planet1);
 display_end();
 return 0; }
