@@ -1,5 +1,5 @@
 #include <ncurses.h>
-#include "game2.h"
+#include "ressources.h"
 #include "display.h"
 #include "load.h"
 

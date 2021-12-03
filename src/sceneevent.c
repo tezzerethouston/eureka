@@ -3,7 +3,7 @@
 #include "sceneevent.h"
 #include "game.h"
 #include "display.h"
-#include "game2.h"
+#include "ressources.h"
 
 void	sceneevent(int scene, int I) {
 clock_t	tstart;

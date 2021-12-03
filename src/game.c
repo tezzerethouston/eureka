@@ -1,7 +1,7 @@
 #include <ncurses.h>
 #include "game.h"
 #include "display.h"
-#include "game2.h"
+#include "ressources.h"
 #include "screen.h"
 #include "planetmap.h"
 

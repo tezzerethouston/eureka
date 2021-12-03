@@ -1,5 +1,5 @@
-#ifndef GAME2_H
-# define GAME2_H
+#ifndef RESSOURCES_H
+# define RESSOURCES_H
 
 void	load_ressources();
 
