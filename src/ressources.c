@@ -26,5 +26,6 @@ void	refresh_portrait2() {
 refresh_portrait(&portrait_sabrina);
 return ; }
 
-int	refresh_actions2(int ply, int plx) {
-return refresh_actions(spaceshipmap[ply][plx]); }
+void	refresh_actions2(int ply, int plx) {
+refresh_actions(spaceshipmap[ply][plx]);
+return ; }

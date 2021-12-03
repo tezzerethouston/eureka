@@ -23,7 +23,6 @@ c = 0;
 ply = 3; plx = 13;
 if (a=='n') { scene=1; I=0; }
 else { scene=0; };
-actions_open = 0;
 mode = 'S';	//spaceship mode
 
 display_init();
@@ -91,15 +90,14 @@ if (mode=='S') {
 		refresh_spaceship2(ply, plx);
 		refresh_portrait2(); }
 	else refresh_spaceship2(ply, plx);
-	if (scene) if (!refresh_dialog(scene, I)) {
+	if (scene) { if (!refresh_dialog(scene, I)) {
 		scene = 0; I = 0;
 		erase_dialog(); erase_portrait();
-		refresh_spaceship2(ply, plx); }
-	if (!scene && !refresh_actions2(ply, plx)) {
-		if (actions_open) {
-			erase_actions(); actions_open = 0; }}
-	else actions_open = 1;
+		refresh_spaceship2(ply, plx);
+		refresh_actions2(ply, plx); }}
+	else refresh_actions2(ply, plx);
 } else if (mode=='P') {
 	refresh_planet(ply, plx, planet1->screen);
+	refresh_actions2(ply, plx);
 }
 return ; }

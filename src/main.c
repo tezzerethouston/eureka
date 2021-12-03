@@ -18,9 +18,10 @@ init_pair(1, COLOR_BLUE, COLOR_BLACK);
 
 menu:
 erase();
-printw("Sabrina's Endeavour\n\n");
-printw("n- new game\n");
-printw("q- quit\n");
+printw("\n");
+printw(" Sabrina's Endeavour\n\n");
+printw(" n- new game\n");
+printw(" q- quit\n");
 refresh();
 
 while(1) { c = getch();

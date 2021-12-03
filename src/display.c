@@ -11,7 +11,7 @@ spaceship = newwin(10, 30, 11, 5);
 dialog = newwin(6, 70, 20, 1);
 portrait = newwin(5, 11, 16, 1);
 hswarning = newwin(3, 25, 11, 46);
-actions = newwin(3, 25, 14, 46);
+actions = newwin(6, 25, 1, 46);
 planet = newwin(20, 70, 1, 1);
 return ; }
 
@@ -31,25 +31,21 @@ draw_character(planet, ply, plx);
 wrefresh(planet);
 return ; }
 
-int	refresh_actions(char c) {
+void	refresh_actions(char c) {
+box(actions, 0, 0);
+mvwprintw(actions, 1, 1, "q- quit");
+mvwprintw(actions, 2, 1, "wasd- move");
 switch(c) {
 	case 'T':
-		box(actions, 0, 0);
-		mvwprintw(actions, 1, 1, "t- teleport");
-		wrefresh(actions);
-		return 1;
+		mvwprintw(actions, 3, 1, "t- teleport");
 		break;
 	case 'F':
-		box(actions, 0, 0);
-		mvwprintw(actions, 1, 1, "f- navigate");
-		wrefresh(actions);
-		return 1;
+		mvwprintw(actions, 3, 1, "f- navigate");
+		break;
+	default:
+		mvwprintw(actions, 3, 1, "           ");
 		break;
 }
-return 0; }
-
-void	erase_actions() {
-werase(actions);
 wrefresh(actions);
 return ; }
 
