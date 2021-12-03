@@ -7,7 +7,7 @@
 void	sceneevent(int scene, int I) {
 clock_t	tstart;
 WINDOW	*overlay;
-overlay = newwin(10, 30, 10, 4);
+overlay = newwin(10, 30, 11, 5);
 
 switch(scene) {
 case 1:

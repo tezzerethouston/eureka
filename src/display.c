@@ -6,7 +6,7 @@
 WINDOW	*spaceship, *dialog, *portrait;
 
 void	display_init() {
-spaceship = newwin(10, 30, 10, 4);
+spaceship = newwin(10, 30, 11, 5);
 dialog = newwin(6, 70, 20, 1);
 portrait = newwin(5, 11, 16, 1);
 load_spaceshipmap();
