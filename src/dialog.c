@@ -15,8 +15,9 @@ wmove(w, 1, 1);
 for (int i=0; (c=getc(f))!='\n'; i++) {
 	if (!i && c=='#') {
 		sceneevent(scene, I);
-		while(getc(f)!='\n');
-		c=getc(f); }
+		break; }
+	//	while(getc(f)!='\n');
+	//	c=getc(f); }
 	waddch(w, c);
 }
 
