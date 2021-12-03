@@ -34,16 +34,20 @@ switch(c) {
 			teleport();
 		break;
 	case 'a':	//left
-		if (!scene) plx--;
+		if (!scene && get_atpos(ply, plx-1)!='|'
+			&& get_atpos(ply, plx-1)!='_') plx--;
 		break;
 	case 'd':	//right
-		if (!scene) plx++;
+		if (!scene && get_atpos(ply, plx+1)!='|'
+			&& get_atpos(ply, plx+1)!='_') plx++;
 		break;
 	case 'w':	//up
-		if (!scene) ply--;
+		if (!scene && get_atpos(ply-1, plx)!='|'
+			&& get_atpos(ply-1, plx)!='_') ply--;
 		break;
 	case 's':	//down
-		if (!scene) ply++;
+		if (!scene && get_atpos(ply+1, plx)!='|'
+			&& get_atpos(ply+1, plx)!='_') ply++;
 		break;
 	case 'q':
 		goto exit; }
