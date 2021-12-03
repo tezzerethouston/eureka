@@ -18,6 +18,18 @@ switch(c) {
 	case ' ':
 		if (scene) I++;
 		break;
+	case 'a':	//left
+		if (!scene) plx--;
+		break;
+	case 'd':	//right
+		if (!scene) plx++;
+		break;
+	case 'w':	//up
+		if (!scene) ply--;
+		break;
+	case 's':	//down
+		if (!scene) ply++;
+		break;
 	case 'q':
 		goto exit; }
 
@@ -33,7 +45,7 @@ else if (scene) {
 	refresh_spaceship(ply, plx);
 	refresh_portrait(); }
 else refresh_spaceship(ply, plx);
-if (!refresh_dialog(scene, I)) {
+if (scene) if (!refresh_dialog(scene, I)) {
 	scene = 0; I = 0;
 	erase_dialog(); erase_portrait();
 	refresh_spaceship(ply, plx); }
