@@ -3,12 +3,13 @@
 #include "draw.h"
 #include "dialog.h"
 
-WINDOW	*spaceship, *dialog, *portrait;
+WINDOW	*spaceship, *dialog, *portrait, *hswarning;
 
 void	display_init() {
 spaceship = newwin(10, 30, 11, 5);
 dialog = newwin(6, 70, 20, 1);
 portrait = newwin(5, 11, 16, 1);
+hswarning = newwin(3, 25, 11, 45);
 load_spaceshipmap();
 load_portrait();
 return ; }
@@ -51,4 +52,15 @@ void	refresh_portrait() {
 box(portrait, 0, 0);
 draw_portrait(portrait);
 wrefresh(portrait);
+return ; }
+
+void	refresh_hswarning() {
+box(hswarning, 0, 0);
+mvwprintw(hswarning, 1, 1, " HYPERSPACE WARNING!!! ");
+wrefresh(hswarning);
+return ; }
+
+void	erase_hswarning() {
+werase(hswarning);
+wrefresh(hswarning);
 return ; }

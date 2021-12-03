@@ -13,6 +13,9 @@ switch(scene) {
 case 1:
 	switch(I) {
 	case 8: //hyperspace
+		refresh_hswarning();
+		tstart=clock(); while((double)(clock()-tstart)/CLOCKS_PER_SEC<2);
+		erase_hswarning();
 		break;
 
 	case 5: //walking to the flight console

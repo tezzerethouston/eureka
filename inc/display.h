@@ -9,5 +9,7 @@ void	refresh_spaceship(int ply, int plx);
 void	refresh_spaceship_reverse();
 void	refresh_dialog(int scene, int I);
 void	refresh_portrait();
+void	refresh_hswarning();
+void	erase_hswarning();
 
 #endif
