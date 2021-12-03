@@ -20,8 +20,13 @@ switch(c) {
 		goto exit; }
 
 // === DISPLAY ===
-if (scene==1 && I<=1) box_spaceship();
-else refresh_spaceship();
+if (scene==1 && I<=1)
+	box_spaceship();
+else if (scene==1 && I==2)
+	refresh_spaceship();
+else {
+	refresh_spaceship();
+	refresh_portrait(); }
 refresh_dialog(scene, I);
 // ===============
 c=getch(); }

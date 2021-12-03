@@ -8,5 +8,6 @@ void	box_spaceship();
 void	refresh_spaceship();
 void	refresh_spaceship_reverse();
 void	refresh_dialog(int scene, int I);
+void	refresh_portrait();
 
 #endif

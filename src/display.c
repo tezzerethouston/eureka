@@ -3,17 +3,20 @@
 #include "draw.h"
 #include "dialog.h"
 
-WINDOW	*spaceship, *dialog;
+WINDOW	*spaceship, *dialog, *portrait;
 
 void	display_init() {
-spaceship = newwin(10, 30, 10, 1);
+spaceship = newwin(10, 30, 10, 4);
 dialog = newwin(6, 70, 20, 1);
+portrait = newwin(5, 11, 16, 1);
 load_spaceshipmap();
+load_portrait();
 return ; }
 
 void	display_end() {
 delwin(spaceship);
 delwin(dialog);
+delwin(portrait);
 return ; }
 
 void	box_spaceship() {
@@ -41,4 +44,10 @@ void	refresh_dialog(int scene, int I) {
 box(dialog, 0, 0);
 printdialog(dialog, scene, I);
 wrefresh(dialog);
+return ; }
+
+void	refresh_portrait() {
+box(portrait, 0, 0);
+draw_portrait(portrait);
+wrefresh(portrait);
 return ; }

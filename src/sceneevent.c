@@ -7,7 +7,7 @@
 void	sceneevent(int scene, int I) {
 clock_t	tstart;
 WINDOW	*overlay;
-overlay = newwin(10, 30, 10, 1);
+overlay = newwin(10, 30, 10, 4);
 
 switch(scene) {
 case 1:
@@ -27,12 +27,15 @@ case 1:
 			mvwprintw(overlay, i, 1, "                            ");
 		redrawwin(overlay);
 		wrefresh(overlay);
+		refresh_portrait();
 		tstart=clock();
 		while((double)(clock()-tstart)/CLOCKS_PER_SEC<0.06);
 		delwin(overlay);
 		refresh_spaceship_reverse();
+		refresh_portrait();
 		tstart=clock();
 		while((double)(clock()-tstart)/CLOCKS_PER_SEC<0.18);
 		refresh_spaceship();
+		refresh_portrait();
 		break;
 }} return; }
