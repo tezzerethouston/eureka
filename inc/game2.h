@@ -2,8 +2,8 @@
 # define GAME2_H
 
 void	load_ressources();
-void	load_spaceshipmap();
-void	load_portrait();
+
+char	get_atpos(int y, int x);
 
 void	refresh_spaceship2(int ply, int plx);
 void	refresh_spaceship_reverse2();

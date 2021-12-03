@@ -30,6 +30,12 @@ switch(c) {
 		wrefresh(actions);
 		return 1;
 		break;
+	case 'F':
+		box(actions, 0, 0);
+		mvwprintw(actions, 1, 1, "f- navigate");
+		wrefresh(actions);
+		return 1;
+		break;
 }
 return 0; }
 

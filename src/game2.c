@@ -11,6 +11,9 @@ load_spaceshipmap(&spaceshipmap);
 load_portrait(&portrait_sabrina);
 return ; }
 
+char	get_atpos(int y, int x) {
+return spaceshipmap[y][x]; }
+
 void	refresh_spaceship2(int ply, int plx) {
 refresh_spaceship(ply, plx, &spaceshipmap);
 return ; }

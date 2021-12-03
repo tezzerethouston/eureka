@@ -3,6 +3,9 @@
 #include "display.h"
 #include "game2.h"
 
+void	teleport();
+void	teleport() { return ; }
+
 int	game (char a) {
 char	c;
 int	scene, I;
@@ -21,6 +24,14 @@ while(1) {
 switch(c) {
 	case ' ':
 		if (scene) I++;
+		break;
+	case 't':	//teleport
+		if (get_atpos(ply, plx)=='T')
+			teleport();
+		break;
+	case 'f':	//navigate
+		if (get_atpos(ply, plx)=='F')
+			teleport();
 		break;
 	case 'a':	//left
 		if (!scene) plx--;
@@ -53,7 +64,7 @@ if (scene) if (!refresh_dialog(scene, I)) {
 	scene = 0; I = 0;
 	erase_dialog(); erase_portrait();
 	refresh_spaceship2(ply, plx); }
-if (!refresh_actions2(ply, plx)) {
+if (!scene && !refresh_actions2(ply, plx)) {
 	if (actions_open) {
 		erase_actions(); actions_open = 0; }}
 else actions_open = 1;
