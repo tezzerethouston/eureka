@@ -8,14 +8,17 @@
 void	teleport();
 void	teleport() { return ; }
 
-int	game (char a) {
-char	c;
 int	scene, I;
-int	ply, plx;
 int	actions_open;
 char	mode;
+int	ply, plx;
+
+//___game_main_______________________
+int	game(char a) {
+char	c;
 screenmap	*planet1;
 
+// INITIALIZATIONS
 c = 0;
 ply = 3; plx = 13;
 if (a=='n') { scene=1; I=0; }
@@ -27,7 +30,20 @@ display_init();
 load_ressources();
 planet1 = new_planet();
 
-while(1) {
+// === MAIN LOOP =
+while(logic(c)) {
+if (scene==1 && I==5)
+	ply = 1;
+display(planet1);
+c=getch(); }
+
+// === FREEING ===
+free_planet(planet1);
+display_end();
+return 0; }
+
+//___logic_______________________
+int	logic(char c) {
 switch(c) {
 	case ' ':
 		if (scene) I++;
@@ -61,12 +77,11 @@ switch(c) {
 			&& get_atpos(ply+1, plx)!='_') ply++;
 		break;
 	case 'q':
-		goto exit; }
+		return 0; }
+return 1; }
 
-if (scene==1 && I==5)
-	ply = 1;
-
-// === DISPLAY ===
+//___display_______________________
+void	display(screenmap *planet1) {
 if (mode=='S') {
 	if (scene==1 && I<=1)
 		box_spaceship();
@@ -87,10 +102,4 @@ if (mode=='S') {
 } else if (mode=='P') {
 	refresh_planet(ply, plx, planet1->screen);
 }
-// ===============
-c=getch(); }
-
-exit:
-free_planet(planet1);
-display_end();
-return 0; }
+return ; }
