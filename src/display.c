@@ -27,7 +27,7 @@ return ; }
 void	refresh_planet(int ply, int plx, char **planetmap) {
 draw_planet(planet, planetmap);
 box(planet, 0, 0);
-draw_character(planet, ply, plx);
+draw_character(planet, ply, plx, 2);
 wrefresh(planet);
 return ; }
 
@@ -60,7 +60,7 @@ void	refresh_spaceship(int ply, int plx, char (*spaceshipmap)[][28]) {
 wattroff(spaceship, A_REVERSE);
 box(spaceship, 0, 0);
 draw_spaceship(spaceship, spaceshipmap);
-draw_character(spaceship, ply, plx);
+draw_character(spaceship, ply, plx, 1);
 wrefresh(spaceship);
 return ; }
 

@@ -8,10 +8,10 @@ for (int i=0; i<8; i++) {
 		waddch(spaceship, (*spaceshipmap)[i][j]); }
 return ; }
 
-void	draw_character(WINDOW *map, int y, int x) {
-wattron(map, COLOR_PAIR(1));
+void	draw_character(WINDOW *map, int y, int x, int bg) {
+wattron(map, COLOR_PAIR(bg));
 mvwaddch(map, y+1, x+1, '@');
-wattroff(map, COLOR_PAIR(1));
+wattroff(map, COLOR_PAIR(bg));
 return ; }
 
 void	draw_portrait(WINDOW *portrait, char (*portrait_sabrina)[3][9]) {
@@ -24,5 +24,15 @@ return ; }
 void	draw_planet(WINDOW *planet, char **planetmap) {
 for (int i=0; i<20; i++)
 	for (int j=0; j<70; j++)
-		waddch(planet, planetmap[i][j]);
+		switch(planetmap[i][j]) {
+			case '.':
+				wattron(planet, COLOR_PAIR(10));
+				waddch(planet, planetmap[i][j]);
+				wattroff(planet, COLOR_PAIR(10));
+				break;
+			case 'o':
+				wattron(planet, COLOR_PAIR(12));
+				waddch(planet, planetmap[i][j]);
+				wattroff(planet, COLOR_PAIR(12));
+				break; }
 return ; }

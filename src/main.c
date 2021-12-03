@@ -1,5 +1,7 @@
 #include <ncurses.h>
 #include <locale.h>
+#include <stdlib.h>
+#include <time.h>
 #include "game.h"
 
 int	main (int ac, char **av) {
@@ -14,7 +16,13 @@ noecho();
 curs_set(0);	//no cursor
 start_color();
 
-init_pair(1, COLOR_BLUE, COLOR_BLACK);
+init_pair(1, COLOR_BLUE, COLOR_BLACK);	//character
+init_pair(2, COLOR_BLUE, COLOR_GREEN);
+init_pair(10, COLOR_WHITE, COLOR_GREEN);	//prairie
+init_pair(11, COLOR_BLACK, COLOR_GREEN);	//bushes
+init_pair(12, COLOR_RED, COLOR_GREEN);	//berry red
+
+srand(time(0));
 
 menu:
 erase();

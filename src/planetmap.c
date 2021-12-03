@@ -12,7 +12,9 @@ for (int i=0; i<20; i++)
 	firstscreen[i] = malloc(70);
 for (int i=0; i<20; i++)
 	for (int j=0; j<70; j++)
-		firstscreen[i][j] = '.';
+		if ((rand()%100)==1)
+			firstscreen[i][j] = 'o';
+		else firstscreen[i][j] = '.';
 sm->up = NULL;
 sm->down = NULL;
 sm->left = NULL;
