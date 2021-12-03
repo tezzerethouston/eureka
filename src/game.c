@@ -29,10 +29,14 @@ if (scene==1 && I<=1)
 	box_spaceship();
 else if (scene==1 && I==2)
 	refresh_spaceship(ply, plx);
-else {
+else if (scene) {
 	refresh_spaceship(ply, plx);
 	refresh_portrait(); }
-refresh_dialog(scene, I);
+else refresh_spaceship(ply, plx);
+if (!refresh_dialog(scene, I)) {
+	scene = 0; I = 0;
+	erase_dialog(); erase_portrait();
+	refresh_spaceship(ply, plx); }
 // ===============
 c=getch(); }
 

@@ -42,15 +42,26 @@ draw_spaceship(spaceship);
 wrefresh(spaceship);
 return ; }
 
-void	refresh_dialog(int scene, int I) {
+int	refresh_dialog(int scene, int I) {
+int	rv;
 box(dialog, 0, 0);
-printdialog(dialog, scene, I);
+rv = printdialog(dialog, scene, I);
+wrefresh(dialog);
+return rv; }
+
+void	erase_dialog() {
+werase(dialog);
 wrefresh(dialog);
 return ; }
 
 void	refresh_portrait() {
 box(portrait, 0, 0);
 draw_portrait(portrait);
+wrefresh(portrait);
+return ; }
+
+void	erase_portrait() {
+werase(portrait);
 wrefresh(portrait);
 return ; }
 

@@ -7,8 +7,10 @@ void	display_end();
 void	box_spaceship();
 void	refresh_spaceship(int ply, int plx);
 void	refresh_spaceship_reverse();
-void	refresh_dialog(int scene, int I);
+int	refresh_dialog(int scene, int I);
+void	erase_dialog();
 void	refresh_portrait();
+void	erase_portrait();
 void	refresh_hswarning();
 void	erase_hswarning();
 
