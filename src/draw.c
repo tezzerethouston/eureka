@@ -10,7 +10,7 @@ return ; }
 
 void	draw_character(WINDOW *map, int y, int x) {
 wattron(map, COLOR_PAIR(1));
-mvwaddch(map, y, x, '@');
+mvwaddch(map, y+1, x+1, '@');
 wattroff(map, COLOR_PAIR(1));
 return ; }
 

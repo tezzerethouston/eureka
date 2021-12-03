@@ -7,11 +7,13 @@ int	game (char a) {
 char	c;
 int	scene, I;
 int	ply, plx;
+int	actions_open;
 
 c = 0;
-ply = 4; plx = 14;
+ply = 3; plx = 13;
 if (a=='n') { scene=1; I=0; }
 else { scene=0; };
+actions_open = 0;
 display_init();
 load_ressources();
 
@@ -36,7 +38,7 @@ switch(c) {
 		goto exit; }
 
 if (scene==1 && I==5)
-	ply = 2;
+	ply = 1;
 
 // === DISPLAY ===
 if (scene==1 && I<=1)
@@ -51,6 +53,10 @@ if (scene) if (!refresh_dialog(scene, I)) {
 	scene = 0; I = 0;
 	erase_dialog(); erase_portrait();
 	refresh_spaceship2(ply, plx); }
+if (!refresh_actions2(ply, plx)) {
+	if (actions_open) {
+		erase_actions(); actions_open = 0; }}
+else actions_open = 1;
 // ===============
 c=getch(); }
 
