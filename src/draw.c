@@ -30,6 +30,12 @@ for (int i=0; i<8; i++) {
 		waddch(spaceship, spaceshipmap[i][j]); }
 return ; }
 
+void	draw_character(WINDOW *map, int y, int x) {
+wattron(map, COLOR_PAIR(1));
+mvwaddch(map, y, x, '@');
+wattroff(map, COLOR_PAIR(1));
+return ; }
+
 void	draw_portrait(WINDOW *portrait) {
 for (int i=0; i<3; i++) {
 	wmove(portrait, i+1, 1);

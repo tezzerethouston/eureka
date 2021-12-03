@@ -12,6 +12,9 @@ cbreak();	//no buffering
 noecho();
 //nodelay(stdscr, TRUE);	//getch doesn't wait
 curs_set(0);	//no cursor
+start_color();
+
+init_pair(1, COLOR_BLUE, COLOR_BLACK);
 
 menu:
 erase();

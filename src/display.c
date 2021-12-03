@@ -30,6 +30,7 @@ void	refresh_spaceship() {
 wattroff(spaceship, A_REVERSE);
 box(spaceship, 0, 0);
 draw_spaceship(spaceship);
+draw_character(spaceship, 4, 14);
 wrefresh(spaceship);
 return ; }
 

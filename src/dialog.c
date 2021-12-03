@@ -16,8 +16,6 @@ for (int i=0; (c=getc(f))!='\n'; i++) {
 	if (!i && c=='#') {
 		sceneevent(scene, I);
 		break; }
-	//	while(getc(f)!='\n');
-	//	c=getc(f); }
 	waddch(w, c);
 }
 
