@@ -5,7 +5,7 @@
 
 WINDOW	*spaceship, *dialog, *portrait;
 WINDOW	*hswarning, *actions, *planet;
-WINDOW	*inventory;
+WINDOW	*inventory, *hpdisplay;
 
 void	display_init() {
 spaceship = newwin(10, 30, 11, 5);
@@ -14,7 +14,8 @@ portrait = newwin(5, 11, 16, 1);
 hswarning = newwin(3, 25, 11, 46);
 actions = newwin(6, 25, 1, 46);
 planet = newwin(20, 70, 1, 1);
-inventory = newwin(7, 15, 1, 71);
+inventory = newwin(7, 15, 3, 71);
+hpdisplay = newwin(3, 15, 1, 71);
 return ; }
 
 void	display_end() {
@@ -25,6 +26,16 @@ delwin(hswarning);
 delwin(actions);
 delwin(planet);
 delwin(inventory);
+delwin(hpdisplay);
+return ; }
+
+void	refresh_hp(int hp) {
+box(hpdisplay, 0, 0);
+mvwprintw(hpdisplay, 1, 1, "HP ");
+wattron(hpdisplay, COLOR_PAIR(20));
+wprintw(hpdisplay, "10/10     ");
+wattroff(hpdisplay, COLOR_PAIR(20));
+wrefresh(hpdisplay);
 return ; }
 
 void	refresh_inventory(item (*inv)[10]) {

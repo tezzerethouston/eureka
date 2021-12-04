@@ -141,6 +141,7 @@ if (mode=='S') {
 } else if (mode=='P') {
 	refresh_planet(ply, plx, planet1->screen);
 	refresh_actions(planet1->screen[ply][plx]);
+	refresh_hp(10);
 	refresh_inventory2();
 }
 return ; }
