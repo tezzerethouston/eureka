@@ -6,6 +6,7 @@
 void	display_init();
 void	display_end();
 
+void	refresh_fcontrol();
 void	refresh_hp(int hp);
 void	refresh_inventory(item (*inventory)[10]);
 void	refresh_planet(int ply, int plx, char **planetmap);

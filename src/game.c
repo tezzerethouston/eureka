@@ -136,8 +136,12 @@ if (mode=='S') {
 		scene = 0; I = 0;
 		erase_dialog(); erase_portrait();
 		refresh_spaceship2(ply, plx);
-		refresh_actions2(ply, plx); }}
-	else refresh_actions2(ply, plx);
+		refresh_actions2(ply, plx);
+		refresh_fcontrol(); }}
+	else {
+		refresh_actions2(ply, plx);
+		refresh_fcontrol();
+	}
 } else if (mode=='P') {
 	refresh_planet(ply, plx, planet1->screen);
 	refresh_actions(planet1->screen[ply][plx]);
