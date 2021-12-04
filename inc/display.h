@@ -1,9 +1,12 @@
 #ifndef DISPLAY_H
 # define DISPLAY_H
 
+#include "item.h"
+
 void	display_init();
 void	display_end();
 
+void	refresh_inventory(item (*inventory)[10]);
 void	refresh_planet(int ply, int plx, char **planetmap);
 void	refresh_actions(char c);
 void	box_spaceship();

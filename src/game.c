@@ -4,11 +4,10 @@
 #include "ressources.h"
 #include "screen.h"
 #include "planetmap.h"
+#include "inventory.h"
 
 void	teleport();
 void	teleport() { return ; }
-void	inventory();
-void	inventory() { return ; }
 
 int	scene, I;
 int	actions_open;
@@ -30,6 +29,7 @@ mode = 'S';	//spaceship mode
 display_init();
 load_ressources();
 planet1 = new_planet();
+inventory_init();
 
 // === MAIN LOOP =
 while(logic(c, planet1)) {
@@ -62,7 +62,7 @@ switch(c) {
 			teleport();
 	case 'p':	//pick up stuff
 		if (mode=='P' && planet1->screen[ply][plx]=='o') {
-			inventory();
+			inventory_add('o');
 			planet1->screen[ply][plx] = '.'; }
 		break;
 
@@ -141,5 +141,6 @@ if (mode=='S') {
 } else if (mode=='P') {
 	refresh_planet(ply, plx, planet1->screen);
 	refresh_actions(planet1->screen[ply][plx]);
+	refresh_inventory2();
 }
 return ; }

@@ -5,6 +5,7 @@
 
 WINDOW	*spaceship, *dialog, *portrait;
 WINDOW	*hswarning, *actions, *planet;
+WINDOW	*inventory;
 
 void	display_init() {
 spaceship = newwin(10, 30, 11, 5);
@@ -13,6 +14,7 @@ portrait = newwin(5, 11, 16, 1);
 hswarning = newwin(3, 25, 11, 46);
 actions = newwin(6, 25, 1, 46);
 planet = newwin(20, 70, 1, 1);
+inventory = newwin(7, 15, 1, 71);
 return ; }
 
 void	display_end() {
@@ -22,6 +24,20 @@ delwin(portrait);
 delwin(hswarning);
 delwin(actions);
 delwin(planet);
+delwin(inventory);
+return ; }
+
+void	refresh_inventory(item (*inv)[10]) {
+box(inventory, 0, 0);
+for (int i=0; i<10; i++) {
+	if (inv[i]->c==0) break;
+	wmove(inventory, i+1, 1);
+	switch(inv[i]->c) {
+		case 'o':
+			wprintw(inventory, "red berry  ");
+			break; }
+	waddch(inventory, (char)(inv[i]->n+'0')); }
+wrefresh(inventory);
 return ; }
 
 void	refresh_planet(int ply, int plx, char **planetmap) {
