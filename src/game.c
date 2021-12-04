@@ -60,20 +60,52 @@ switch(c) {
 			teleport();
 		break;
 	case 'a':	//left
-		if (!scene && get_atpos(ply, plx-1)!='|'
-			&& get_atpos(ply, plx-1)!='_') plx--;
+		if (!scene)
+		       switch(mode) {
+		       case 'S':
+				if (get_atpos(ply, plx-1)!='|'
+				&& get_atpos(ply, plx-1)!='_')
+					plx--;
+				break;
+			case 'P':
+				if (plx>0) plx--;
+				break; }
 		break;
 	case 'd':	//right
-		if (!scene && get_atpos(ply, plx+1)!='|'
-			&& get_atpos(ply, plx+1)!='_') plx++;
+		if (!scene)
+		       switch(mode) {
+		       case 'S':
+				if (get_atpos(ply, plx+1)!='|'
+				&& get_atpos(ply, plx+1)!='_')
+					plx++;
+				break;
+			case 'P':
+				if (plx<67) plx++;
+				break; }
 		break;
 	case 'w':	//up
-		if (!scene && get_atpos(ply-1, plx)!='|'
-			&& get_atpos(ply-1, plx)!='_') ply--;
+		if (!scene)
+		       switch(mode) {
+		       case 'S':
+				if (get_atpos(ply-1, plx)!='|'
+				&& get_atpos(ply-1, plx)!='_')
+					ply--;
+				break;
+			case 'P':
+				if (ply>0) ply--;
+				break; }
 		break;
 	case 's':	//down
-		if (!scene && get_atpos(ply+1, plx)!='|'
-			&& get_atpos(ply+1, plx)!='_') ply++;
+		if (!scene)
+		       switch(mode) {
+		       case 'S':
+				if (get_atpos(ply+1, plx)!='|'
+				&& get_atpos(ply+1, plx)!='_')
+					ply++;
+				break;
+			case 'P':
+				if (ply<17) ply++;
+				break; }
 		break;
 	case 'q':
 		return 0; }

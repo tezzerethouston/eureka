@@ -22,17 +22,18 @@ for (int i=0; i<3; i++) {
 return ; }
 
 void	draw_planet(WINDOW *planet, char **planetmap) {
-for (int i=0; i<20; i++)
-	for (int j=0; j<70; j++)
+for (int i=0; i<18; i++) {
+	wmove(planet, i+1, 1);
+	for (int j=0; j<68; j++)
 		switch(planetmap[i][j]) {
-			case '.':
-				wattron(planet, COLOR_PAIR(10));
-				waddch(planet, planetmap[i][j]);
-				wattroff(planet, COLOR_PAIR(10));
-				break;
-			case 'o':
-				wattron(planet, COLOR_PAIR(12));
-				waddch(planet, planetmap[i][j]);
-				wattroff(planet, COLOR_PAIR(12));
-				break; }
+		case '.':
+			wattron(planet, COLOR_PAIR(10));
+			waddch(planet, planetmap[i][j]);
+			wattroff(planet, COLOR_PAIR(10));
+			break;
+		case 'o':
+			wattron(planet, COLOR_PAIR(12));
+			waddch(planet, planetmap[i][j]);
+			wattroff(planet, COLOR_PAIR(12));
+			break; }}
 return ; }

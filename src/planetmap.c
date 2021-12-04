@@ -7,11 +7,11 @@ screenmap	*sm;
 char	**firstscreen;
 
 sm = malloc(sizeof(screenmap));
-firstscreen = malloc(sizeof(char*)*20);
-for (int i=0; i<20; i++)
-	firstscreen[i] = malloc(70);
-for (int i=0; i<20; i++)
-	for (int j=0; j<70; j++)
+firstscreen = malloc(sizeof(char*)*18);
+for (int i=0; i<18; i++)
+	firstscreen[i] = malloc(68);
+for (int i=0; i<18; i++)
+	for (int j=0; j<68; j++)
 		if ((rand()%100)==1)
 			firstscreen[i][j] = 'o';
 		else firstscreen[i][j] = '.';
@@ -23,7 +23,7 @@ sm->screen = firstscreen;
 return sm; }
 
 void	free_planet(screenmap *sm) {
-for (int i=0; i<20; i++)
+for (int i=0; i<18; i++)
 	free(sm->screen[i]);
 free(sm->screen);
 free(sm);

@@ -25,6 +25,7 @@ delwin(planet);
 return ; }
 
 void	refresh_planet(int ply, int plx, char **planetmap) {
+werase(planet);
 draw_planet(planet, planetmap);
 box(planet, 0, 0);
 draw_character(planet, ply, plx, 2);
