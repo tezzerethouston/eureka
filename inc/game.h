@@ -5,6 +5,6 @@
 
 int	game(char a);
 void	display(screenmap *planet1);
-int	logic(char c);
+int	logic(char c, screenmap *planet1);
 
 #endif

@@ -7,6 +7,8 @@
 
 void	teleport();
 void	teleport() { return ; }
+void	inventory();
+void	inventory() { return ; }
 
 int	scene, I;
 int	actions_open;
@@ -30,7 +32,7 @@ load_ressources();
 planet1 = new_planet();
 
 // === MAIN LOOP =
-while(logic(c)) {
+while(logic(c, planet1)) {
 if (scene==1 && I==5)
 	ply = 1;
 display(planet1);
@@ -42,23 +44,26 @@ display_end();
 return 0; }
 
 //___logic_______________________
-int	logic(char c) {
+int	logic(char c, screenmap *planet1) {
 switch(c) {
 	//actions
 	case ' ':
 		if (scene) I++;
 		break;
 	case 't':	//teleport
-		if (get_atpos(ply, plx)=='T')
-			teleport();
+		if (mode=='S' && get_atpos(ply, plx)=='T')
 			if (mode=='S') {
 				mode = 'P';
 				erase_spaceship(); }
 			else if (mode=='P') mode = 'S';
 		break;
 	case 'f':	//navigate
-		if (get_atpos(ply, plx)=='F')
+		if (mode=='S' && get_atpos(ply, plx)=='F')
 			teleport();
+	case 'p':	//pick up stuff
+		if (mode=='P' && planet1->screen[ply][plx]=='o') {
+			inventory();
+			planet1->screen[ply][plx] = '.'; }
 		break;
 
 	//movement
