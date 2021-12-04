@@ -37,14 +37,17 @@ box(actions, 0, 0);
 mvwprintw(actions, 1, 1, "q- quit");
 mvwprintw(actions, 2, 1, "wasd- move");
 switch(c) {
-	case 'T':
+	case 'T':	//teleporter
 		mvwprintw(actions, 3, 1, "t- teleport");
 		break;
-	case 'F':
+	case 'F':	//flight control
 		mvwprintw(actions, 3, 1, "f- navigate");
 		break;
+	case 'o':	//berry
+		mvwprintw(actions, 3, 1, "p- pick up (berry)");
+		break;
 	default:
-		mvwprintw(actions, 3, 1, "           ");
+		mvwprintw(actions, 3, 1, "                  ");
 		break;
 }
 wrefresh(actions);

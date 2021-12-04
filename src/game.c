@@ -44,6 +44,7 @@ return 0; }
 //___logic_______________________
 int	logic(char c) {
 switch(c) {
+	//actions
 	case ' ':
 		if (scene) I++;
 		break;
@@ -59,6 +60,8 @@ switch(c) {
 		if (get_atpos(ply, plx)=='F')
 			teleport();
 		break;
+
+	//movement
 	case 'a':	//left
 		if (!scene)
 		       switch(mode) {
@@ -107,6 +110,8 @@ switch(c) {
 				if (ply<17) ply++;
 				break; }
 		break;
+
+	//misc/others
 	case 'q':
 		return 0; }
 return 1; }
@@ -130,6 +135,6 @@ if (mode=='S') {
 	else refresh_actions2(ply, plx);
 } else if (mode=='P') {
 	refresh_planet(ply, plx, planet1->screen);
-	refresh_actions2(ply, plx);
+	refresh_actions(planet1->screen[ply][plx]);
 }
 return ; }
