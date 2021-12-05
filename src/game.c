@@ -10,7 +10,7 @@ void	teleport();
 void	teleport() { return ; }
 
 int	scene, I;
-int	actions_open;
+int	actions_open, fcontrol_open;
 char	mode;
 int	ply, plx;
 
@@ -25,6 +25,7 @@ ply = 3; plx = 13;
 if (a=='n') { scene=1; I=0; }
 else { scene=0; };
 mode = 'S';	//spaceship mode
+fcontrol_open = 0;
 
 display_init();
 load_ressources();
@@ -59,7 +60,9 @@ switch(c) {
 		break;
 	case 'f':	//navigate
 		if (mode=='S' && get_atpos(ply, plx)=='F')
-			teleport();
+			if (!fcontrol_open) fcontrol_open = 1;
+			else {  erase_fcontrol();
+				fcontrol_open = 0; }
 	case 'p':	//pick up stuff
 		if (mode=='P' && planet1->screen[ply][plx]=='o') {
 			inventory_add('o');
@@ -137,11 +140,10 @@ if (mode=='S') {
 		erase_dialog(); erase_portrait();
 		refresh_spaceship2(ply, plx);
 		refresh_actions2(ply, plx);
-		refresh_fcontrol(); }}
+		if (fcontrol_open) refresh_fcontrol(); }}
 	else {
 		refresh_actions2(ply, plx);
-		refresh_fcontrol();
-	}
+		if (fcontrol_open) refresh_fcontrol(); }
 } else if (mode=='P') {
 	refresh_planet(ply, plx, planet1->screen);
 	refresh_actions(planet1->screen[ply][plx]);

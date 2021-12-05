@@ -18,7 +18,7 @@ planet = newwin(20, 70, 1, 1);
 inventory = newwin(7, 15, 3, 71);
 hpdisplay = newwin(3, 15, 1, 71);
 fcontrol = newwin(12, 37, 2, 1);
-windshield = newwin(7, 35, 3, 2);
+windshield = newwin(7, 37, 3, 1);
 return ; }
 
 void	display_end() {
@@ -36,19 +36,26 @@ return ; }
 void	refresh_fcontrol() {
 box(fcontrol, 0, 0);
 box(windshield, 0, 0);
+mvwprintw(fcontrol, 0, 10, " Flight Control ");
 mvwaddch(windshield, 2, 2, '+');
 mvwaddch(windshield, 1, 30, '*');
 mvwaddch(windshield, 2, 33, '+');
 wattron(windshield, COLOR_PAIR(10));
-mvwprintw(windshield, 3, 11, "             ");
-mvwprintw(windshield, 4, 6, "                       ");
-mvwprintw(windshield, 5, 3, "                             ");
+mvwprintw(windshield, 3, 11, "               ");
+mvwprintw(windshield, 4, 6, "                         ");
+mvwprintw(windshield, 5, 3, "                               ");
 wattroff(windshield, COLOR_PAIR(10));
 mvwprintw(fcontrol, 8, 10, "Planet Amarada");
 mvwprintw(fcontrol, 9, 1, "Hostility: 0   Foraging: 5");
 mvwprintw(fcontrol, 10, 1, "Hyperspace drive: Reloading 000/100");
+mvwprintw(fcontrol, 11, (int)(3*37/4), " f ");
 wrefresh(fcontrol);
 wrefresh(windshield);
+return ; }
+
+void	erase_fcontrol() {
+werase(fcontrol);
+wrefresh(fcontrol);
 return ; }
 
 void	refresh_hp(int hp) {
