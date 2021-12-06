@@ -13,6 +13,8 @@ for (int i=0; i<18; i++)
 for (int i=0; i<18; i++)
 	for (int j=0; j<68; j++)
 		if ((rand()%100)==1)
+			firstscreen[i][j] = 'c';
+		else if ((rand()%100)==1)
 			firstscreen[i][j] = 'o';
 		else firstscreen[i][j] = '.';
 sm->up = NULL;

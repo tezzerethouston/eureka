@@ -35,5 +35,10 @@ for (int i=0; i<18; i++) {
 			wattron(planet, COLOR_PAIR(12));
 			waddch(planet, planetmap[i][j]);
 			wattroff(planet, COLOR_PAIR(12));
+			break;
+		case 'c':
+			wattron(planet, COLOR_PAIR(11));
+			waddch(planet, planetmap[i][j]);
+			wattroff(planet, COLOR_PAIR(11));
 			break; }}
 return ; }

@@ -64,8 +64,12 @@ switch(c) {
 			else {  erase_fcontrol();
 				fcontrol_open = 0; }
 	case 'p':	//pick up stuff
-		if (mode=='P' && planet1->screen[ply][plx]=='o') {
+		if (mode=='P')
+			if (planet1->screen[ply][plx]=='o') {
 			inventory_add('o');
+			planet1->screen[ply][plx] = '.'; }
+			else if (planet1->screen[ply][plx]=='c') {
+			inventory_add('c');
 			planet1->screen[ply][plx] = '.'; }
 		break;
 

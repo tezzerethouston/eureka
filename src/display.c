@@ -70,13 +70,16 @@ return ; }
 void	refresh_inventory(item (*inv)[10]) {
 box(inventory, 0, 0);
 for (int i=0; i<10; i++) {
-	if (inv[i]->c==0) break;
+	if ((*inv)[i].c==0) break;
 	wmove(inventory, i+1, 1);
-	switch(inv[i]->c) {
+	switch((*inv)[i].c) {
 		case 'o':
 			wprintw(inventory, "red berry  ");
+			break;
+		case 'c':
+			wprintw(inventory, "coffee bean");
 			break; }
-	waddch(inventory, (char)(inv[i]->n+'0')); }
+	waddch(inventory, (char)((*inv)[i].n+'0')); }
 wrefresh(inventory);
 return ; }
 
@@ -102,8 +105,11 @@ switch(c) {
 	case 'o':	//berry
 		mvwprintw(actions, 3, 1, "p- pick up (berry)");
 		break;
+	case 'c':	//coffee bean
+		mvwprintw(actions, 3, 1, "p- pick up (coffee bean)");
+		break;
 	default:
-		mvwprintw(actions, 3, 1, "                  ");
+		mvwprintw(actions, 3, 1, "                        ");
 		break;
 }
 wrefresh(actions);

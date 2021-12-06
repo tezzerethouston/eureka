@@ -21,6 +21,7 @@ init_color(COLOR_RED, 682, 149, 188);
 init_pair(1, COLOR_BLUE, COLOR_BLACK);	//character
 init_pair(2, COLOR_BLUE, COLOR_GREEN);
 init_pair(10, COLOR_WHITE, COLOR_GREEN);	//prairie
+init_pair(11, COLOR_BLACK, COLOR_GREEN);	//coffee brown
 init_pair(12, COLOR_RED, COLOR_GREEN);	//berry red
 init_pair(20, COLOR_WHITE, COLOR_RED);	//solid red
 
