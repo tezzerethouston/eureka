@@ -1,6 +1,12 @@
 #include <ncurses.h>
 #include "load.h"
 
+void	load(char *mode, int *scene, int *I) {
+FILE	*f = fopen("save", "r");
+*mode = fgetc(f);
+fclose(f);
+return ; }
+
 void	load_spaceshipmap(char (*spaceshipmap)[][28]) {
 FILE	*f = fopen("asset/map/spaceship", "r");
 for (int i=0; i<8; i++) {

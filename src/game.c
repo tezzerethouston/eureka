@@ -1,5 +1,6 @@
 #include <ncurses.h>
 #include "game.h"
+#include "load.h"
 #include "display.h"
 #include "ressources.h"
 #include "screen.h"
@@ -22,9 +23,9 @@ screenmap	*planet1;
 // INITIALIZATIONS
 c = 0;
 ply = 3; plx = 13;
-if (a=='n') { scene=1; I=0; }
-else { scene=0; };
-mode = 'S';	//spaceship mode
+if (a=='n') { mode='S'; scene=1; I=0; }
+else if (a=='l') { load(&mode, &scene, &I); scene=0; }
+else { mode='S'; scene=0; };
 fcontrol_open = 0;
 
 display_init();
@@ -46,6 +47,7 @@ return 0; }
 
 //___logic_______________________
 int	logic(char c, screenmap *planet1) {
+FILE	*f;
 switch(c) {
 	//actions
 	case ' ':
@@ -124,7 +126,12 @@ switch(c) {
 		break;
 
 	//misc/others
-	case 'q':
+	case 'S':	//save
+		f = fopen("save", "w");
+		fputc(mode, f);
+		fclose(f);
+		break;
+	case 'q':	//quit
 		return 0; }
 return 1; }
 

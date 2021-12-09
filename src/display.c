@@ -94,22 +94,23 @@ return ; }
 void	refresh_actions(char c) {
 box(actions, 0, 0);
 mvwprintw(actions, 1, 1, "q- quit");
-mvwprintw(actions, 2, 1, "wasd- move");
+mvwprintw(actions, 2, 1, "S- save");
+mvwprintw(actions, 3, 1, "wasd- move");
 switch(c) {
 	case 'T':	//teleporter
-		mvwprintw(actions, 3, 1, "t- teleport");
+		mvwprintw(actions, 4, 1, "t- teleport");
 		break;
 	case 'F':	//flight control
-		mvwprintw(actions, 3, 1, "f- navigate");
+		mvwprintw(actions, 4, 1, "f- navigate");
 		break;
 	case 'o':	//berry
-		mvwprintw(actions, 3, 1, "p- pick up (berry)");
+		mvwprintw(actions, 4, 1, "p- pick up (berry)");
 		break;
 	case 'c':	//coffee bean
-		mvwprintw(actions, 3, 1, "p- pick up (coffee bean)");
+		mvwprintw(actions, 4, 1, "p- pick up (coffee bean)");
 		break;
 	default:
-		mvwprintw(actions, 3, 1, "                        ");
+		mvwprintw(actions, 4, 1, "                        ");
 		break;
 }
 wrefresh(actions);

@@ -32,6 +32,7 @@ erase();
 printw("\n");
 printw(" Sabrina's Endeavour\n\n");
 printw(" n- new game\n");
+printw(" l- load game\n");
 printw(" q- quit\n");
 refresh();
 
@@ -41,6 +42,8 @@ switch(c) {
 		erase(); refresh();
 		game('n');
 		goto menu;
+	case 'l':
+		game('l');
 	case 'q':
 		goto exit;
 }}
